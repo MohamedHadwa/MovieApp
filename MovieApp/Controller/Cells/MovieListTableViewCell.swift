@@ -45,8 +45,9 @@ class MovieListTableViewCell: UITableViewCell {
         self.movieTitle.text = data.title
         self.movieRating.text = "⭐️ \(data.rating ?? 0.0) / 10"
         self.movieGenres.text = data.genres?.joined(separator: ", ")
-        guard let imgURL = URL(string: data.smallCoverImage ?? "" ) else { return  }
+        guard let imgURL = URL(string: data.mediumCoverImage ?? "" ) else { return  }
          let recource = ImageResource(downloadURL: imgURL)
+
         self.movieImage.kf.setImage(with: recource)
         self.selectionStyle = .none
     }

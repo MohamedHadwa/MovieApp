@@ -6,6 +6,8 @@
 //
 
 import Foundation
+
+import Foundation
 class Movies: Codable {
     var status: Stat?
     var statusMessage: String?
@@ -59,7 +61,7 @@ class Movie: Codable {
     var genres: [String]?
     var summary, descriptionFull, synopsis, ytTrailerCode: String?
     var language: String?
-    var mpaRating: MpaRating?
+    var mpaRating: String?
     var backgroundImage, backgroundImageOriginal, smallCoverImage, mediumCoverImage: String?
     var largeCoverImage: String?
     var state: Stat?
@@ -68,26 +70,26 @@ class Movie: Codable {
     var dateUploadedUnix: Int?
 
     enum CodingKeys: String, CodingKey {
-        case id, url
-        case imdbCode
-        case title
-        case titleEnglish
-        case titleLong
-        case slug, year, rating, runtime, genres, summary
-        case descriptionFull
-        case synopsis
-        case ytTrailerCode
-        case language
-        case mpaRating
-        case backgroundImage
-        case backgroundImageOriginal
-        case smallCoverImage
-        case mediumCoverImage
-        case largeCoverImage
-        case state, torrents
-        case dateUploaded
-        case dateUploadedUnix
-    }
+            case id, url
+            case imdbCode = "imdb_code"
+            case title
+            case titleEnglish = "title_english"
+            case titleLong = "title_long"
+            case slug, year, rating, runtime, genres, summary
+            case descriptionFull = "description_full"
+            case synopsis
+            case ytTrailerCode = "yt_trailer_code"
+            case language
+            case mpaRating = "mpa_rating"
+            case backgroundImage = "background_image"
+            case backgroundImageOriginal = "background_image_original"
+            case smallCoverImage = "small_cover_image"
+            case mediumCoverImage = "medium_cover_image"
+            case largeCoverImage = "large_cover_image"
+            case state, torrents
+            case dateUploaded = "date_uploaded"
+            case dateUploadedUnix = "date_uploaded_unix"
+        }
 
 //    init(id: Int?, url: String?, imdbCode: String?, title: String?, titleEnglish: String?, titleLong: String?, slug: String?, year: Int?, rating: Double?, runtime: Int?, genres: [String]?, summary: String?, descriptionFull: String?, synopsis: String?, ytTrailerCode: String?, language: String?, mpaRating: MpaRating?, backgroundImage: String?, backgroundImageOriginal: String?, smallCoverImage: String?, mediumCoverImage: String?, largeCoverImage: String?, state: Stat?, torrents: [Torrent]?, dateUploaded: String?, dateUploadedUnix: Int?) {
 //        self.id = id
@@ -119,12 +121,12 @@ class Movie: Codable {
 //    }
 }
 
-enum MpaRating: String, Codable {
-    case empty = ""
-    case mpaRatingPG13 = "PG-13"
-    case pg13 = "PG13"
-    case r = "R"
-}
+//enum MpaRating: String, Codable {
+//    case empty = ""
+//    case mpaRatingPG13 = "PG-13"
+//    case pg13 = "PG13"
+//    case r = "R"
+//}
 
 enum Stat: String, Codable {
     case ok = "ok"
@@ -134,7 +136,7 @@ enum Stat: String, Codable {
 class Torrent: Codable {
     var url: String?
     var hash: String?
-    var quality: Quality?
+    var quality: String?
     var type: TypeEnum?
     var seeds, peers: Int?
     var size: String?
@@ -163,10 +165,10 @@ class Torrent: Codable {
 //    }
 }
 
-enum Quality: String, Codable {
-    case the1080P = "1080p"
-    case the720P = "720p"
-}
+//enum Quality: String, Codable {
+//    case the1080P = "1080p"
+//    case the720P = "720p"
+//}
 
 enum TypeEnum: String, Codable {
     case bluray = "bluray"
